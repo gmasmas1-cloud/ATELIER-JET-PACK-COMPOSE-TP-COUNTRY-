@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Country</string>
+    <string name="country1">Algeria</string>
+    <string name="capital1">Alger</string>
+    <string name="country2">Angola</string>
+    <string name="capital2">Luanda</string>
+    <string name="country3">Congo</string>
+    <string name="capital3">Brazzaville</string>
+    <string name="country4">Guinea</string>
+    <string name="capital4">Conakry</string>
+    <string name="country5">Maroc</string>
+    <string name="capital5">Rabat</string>
+</resources>
