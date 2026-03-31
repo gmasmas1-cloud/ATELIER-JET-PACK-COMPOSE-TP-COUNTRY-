@@ -6,8 +6,8 @@
     <string name="country2">Angola</string>
     <string name="capital2">Luanda</string>
     <string name="desc2">L\'Angola est un pays d\'Afrique centrale, limitrophe de la République démocratique du Congo, de la République du Congo, de la Namibie et de la Zambie.</string>
-    <string name="country3">Congo</string>
-    <string name="capital3">Brazzaville</string>
+    <string name="country3">Congo DRC</string>
+    <string name="capital3">Kinshasa</string>
     <string name="desc3">La République du Congo, également appelée Congo-Brazzaville, est un pays d\'Afrique centrale.</string>
     <string name="country4">Guinea</string>
     <string name="capital4">Conakry</string>
@@ -15,4 +15,24 @@
     <string name="country5">Maroc</string>
     <string name="capital5">Rabat</string>
     <string name="desc5">Le Maroc est un pays situé au nord-ouest de l\'Afrique. Il est bordé par l\'océan Atlantique à l\'ouest et par la mer Méditerranée au nord.</string>
+
+    <string name="country6">Japon</string>
+    <string name="capital6">Tokyo</string>
+    <string name="desc6">Le Japon est un pays insulaire d\'Asie de l\'Est, situé dans l\'océan Pacifique. Il est connu pour ses villes denses, ses palais impériaux et ses milliers de sanctuaires.</string>
+
+    <string name="country7">Corée du Sud</string>
+    <string name="capital7">Séoul</string>
+    <string name="desc7">La Corée du Sud est un pays d\'Asie de l\'Est qui occupe la moitié sud de la péninsule de Corée. Elle est réputée pour sa technologie de pointe et sa culture pop.</string>
+
+    <string name="country8">Mexique</string>
+    <string name="capital8">Mexico</string>
+    <string name="desc8">Le Mexique est un pays situé entre les États-Unis et l\'Amérique centrale. Il est célèbre pour ses plages, ses paysages variés et ses ruines anciennes.</string>
+
+    <string name="country9">Colombie</string>
+    <string name="capital9">Bogota</string>
+    <string name="desc9">La Colombie est un pays situé au nord-ouest de l\'Amérique du Sud. Elle possède des paysages diversifiés : forêts amazoniennes, montagnes des Andes et plantations de café.</string>
+
+    <string name="country10">Italie</string>
+    <string name="capital10">Rome</string>
+    <string name="desc10">L\'Italie est un pays d\'Europe du Sud en forme de botte. Elle a laissé une marque profonde sur la culture et la cuisine occidentales.</string>
 </resources>

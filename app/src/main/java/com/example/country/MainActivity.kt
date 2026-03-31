@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -28,6 +29,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
@@ -74,10 +77,47 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CountryApp(modifier: Modifier = Modifier) {
-    val countryList = DataSource().loadCountry()
-    Column(modifier = modifier) {
-        Header()
-        CountryList(countryList = countryList)
+    var showLandingPage by remember { mutableStateOf(true) }
+
+    if (showLandingPage) {
+        HomeScreen(onStartClicked = { showLandingPage = false }, modifier = modifier)
+    } else {
+        Column(modifier = modifier) {
+            Header()
+            CountryList(countryList = DataSource().loadCountry())
+        }
+    }
+}
+
+@Composable
+fun HomeScreen(onStartClicked: () -> Unit, modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Text(
+            text = "karibu",
+            style = MaterialTheme.typography.displayLarge,
+            fontWeight = FontWeight.Bold,
+            fontSize = 64.sp,
+            color = Color.Black
+        )
+        Spacer(modifier = Modifier.height(48.dp))
+        Button(
+            onClick = onStartClicked,
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier
+                .width(200.dp)
+                .height(56.dp)
+        ) {
+            Text(
+                text = "voir les pays",
+                color = Color.White,
+                fontSize = 18.sp
+            )
+        }
     }
 }
 
