@@ -2,12 +2,17 @@
     <string name="app_name">Country</string>
     <string name="country1">Algeria</string>
     <string name="capital1">Alger</string>
+    <string name="desc1">L\'Algérie est un pays d\'Afrique du Nord faisant partie du Maghreb. C\'est le plus grand pays du continent africain.</string>
     <string name="country2">Angola</string>
     <string name="capital2">Luanda</string>
+    <string name="desc2">L\'Angola est un pays d\'Afrique centrale, limitrophe de la République démocratique du Congo, de la République du Congo, de la Namibie et de la Zambie.</string>
     <string name="country3">Congo</string>
     <string name="capital3">Brazzaville</string>
+    <string name="desc3">La République du Congo, également appelée Congo-Brazzaville, est un pays d\'Afrique centrale.</string>
     <string name="country4">Guinea</string>
     <string name="capital4">Conakry</string>
+    <string name="desc4">La Guinée est un pays d\'Afrique de l\'Ouest. Elle est parfois appelée Guinée-Conakry pour la distinguer de la Guinée-Bissau et de la Guinée équatoriale.</string>
     <string name="country5">Maroc</string>
     <string name="capital5">Rabat</string>
+    <string name="desc5">Le Maroc est un pays situé au nord-ouest de l\'Afrique. Il est bordé par l\'océan Atlantique à l\'ouest et par la mer Méditerranée au nord.</string>
 </resources>
