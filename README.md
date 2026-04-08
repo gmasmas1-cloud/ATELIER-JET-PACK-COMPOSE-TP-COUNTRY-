@@ -21,11 +21,11 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 | Accueil (Karibu) | Liste (M'bokas) | Détails (1) | Détails (2) |
 | :---: | :---: | :---: | :---: |
-| <<img src="https://github.com/user-attachments/assets/84ad7f1f-5128-46bd-ab95-678dae541e17" width="200" /> | <img src="https://github.com/user-attachments/assets/86bc0fd1-f98a-4c9a-929d-fcd49487dbab" width="200" /> | <img src="https://github.com/user-attachments/assets/09957806-ad4b-44ee-ad9e-9cd4b03494d7" width="200" />  | <img src="https://github.com/user-attachments/assets/98b26e2c-952b-4fca-ad38-f4400b1ebf36" width="200" /> |
+| <img src="https://github.com/user-attachments/assets/84ad7f1f-5128-46bd-ab95-678dae541e17" width="200" /> | <img src="https://github.com/user-attachments/assets/86bc0fd1-f98a-4c9a-929d-fcd49487dbab" width="200" /> | <img src="https://github.com/user-attachments/assets/09957806-ad4b-44ee-ad9e-9cd4b03494d7" width="200" />  | <img src="https://github.com/user-attachments/assets/98b26e2c-952b-4fca-ad38-f4400b1ebf36" width="200" /> |
 
 ---
 
-## Technologies Utilisées
+## 🛠 Technologies Utilisées
 
 - **Langage** : [Kotlin](https://kotlinlang.org/)
 - **UI Framework** : [Jetpack Compose](https://developer.android.com/jetpack/compose)
@@ -54,4 +54,5 @@ Ce projet a été réalisé dans le cadre d'un atelier pratique sur Jetpack Comp
 - Les animations de composants et la gestion d'état.
 
 ---
-© 2026 - Développé avec par [Masangu/G'mas]
+© 2026 - Développé par **Masangu/G'mas**
+
