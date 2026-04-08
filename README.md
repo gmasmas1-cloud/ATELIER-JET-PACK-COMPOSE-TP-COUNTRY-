@@ -1,4 +1,4 @@
-﻿# 🌍 M'bokas - Explorer les Pays
+# 🌍 M'bokas - Explorer les Pays
 
 Une application Android moderne développée avec **Jetpack Compose** pour découvrir des pays à travers une interface fluide et interactive.
 
@@ -8,7 +8,7 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 ---
 
-## ✨ Fonctionnalités
+##  Fonctionnalités
 
 - **Page d'accueil (Karibu)** : Une interface de bienvenue épurée pour commencer l'exploration.
 - **Liste Interactive** : Parcourez une liste de pays avec leurs drapeaux, capitales et codes.
@@ -17,7 +17,7 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 ---
 
-## 📸 Aperçu
+##  Aperçu
 
 | Accueil (Karibu) | Liste (M'bokas) | Détails (1) | Détails (2) |
 | :---: | :---: | :---: | :---: |
@@ -25,7 +25,7 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 ---
 
-## 🛠️ Technologies Utilisées
+## Technologies Utilisées
 
 - **Langage** : [Kotlin](https://kotlinlang.org/)
 - **UI Framework** : [Jetpack Compose](https://developer.android.com/jetpack/compose)
@@ -34,7 +34,7 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 ---
 
-## 🚀 Installation & Exécution
+##  Installation & Exécution
 
 1. Clonez le dépôt :
    ```bash
@@ -46,7 +46,7 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 ---
 
-## 📝 À propos du TP
+##  À propos du TP
 
 Ce projet a été réalisé dans le cadre d'un atelier pratique sur Jetpack Compose, mettant l'accent sur :
 - La gestion des listes avec `LazyColumn`.
