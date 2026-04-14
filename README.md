@@ -21,7 +21,9 @@ Une application Android moderne développée avec **Jetpack Compose** pour déco
 
 | Accueil (Karibu) | Liste (M'bokas) | Détails (1) | Détails (2) | Détails (3) | Détails (4) |
 | :---: | :---: | :---: | :---: |-----------|-------------|
-| <img src="https://github.com/user-attachments/assets/09957806-ad4b-44ee-ad9e-9cd4b03494d7" width="200" /> | <img src="https://github.com/user-attachments/assets/98b26e2c-952b-4fca-ad38-f4400b1ebf36" width="200" /> | <img src="https://github.com/user-attachments/assets/84ad7f1f-5128-46bd-ab95-678dae541e17" width="200" /> | <img src="https://github.com/user-attachments/assets/86bc0fd1-f98a-4c9a-929d-fcd49487dbab" width="200" /> |           |             |
+| <img src="https://github.com/user-attachments/assets/09957806-ad4b-44ee-ad9e-9cd4b03494d7" width="200" /> | <img src="https://github.com/user-attachments/assets/98b26e2c-952b-4fca-ad38-f4400b1ebf36" width="200" /> | <img src="https://github.com/user-attachments/assets/84ad7f1f-5128-46bd-ab95-678dae541e17" width="200" /> | <img src="https://github.com/user-attachments/assets/86bc0fd1-f98a-4c9a-929d-fcd49487dbab" width="200" /> | <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ab965416-4655-42c1-944a-6b58a79771d8" />
+          |        <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ffd089fe-674c-4e66-8a72-dd7eba9cd293" />
+     |
 
 ---
 
