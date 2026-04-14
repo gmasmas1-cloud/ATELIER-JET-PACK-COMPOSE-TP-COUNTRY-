@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -28,17 +27,21 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.KeyboardArrowUp
-import androidx.compose.material.icons.filled.LocationOn
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
+import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -48,15 +51,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.country.data.DataSource
+import androidx.lifecycle.viewmodel.compose.viewModel
+import coil3.compose.AsyncImage
 import com.example.country.model.Country
 import com.example.country.ui.theme.CountryTheme
+import com.example.country.ui.viewmodel.CountryViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,33 +67,47 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CountryTheme {
-                Scaffold(
-                    modifier = Modifier.fillMaxSize(),
-                    containerColor = Color(0xFFF0F0F0)
-                ) { innerPadding ->
-                    CountryApp(modifier = Modifier.padding(innerPadding))
-                }
+                CountryApp()
             }
         }
     }
 }
 
 @Composable
-fun CountryApp(modifier: Modifier = Modifier) {
-    var showLandingPage by remember { mutableStateOf(true) }
+fun CountryApp(viewModel: CountryViewModel = viewModel()) {
+    var currentScreen by remember { mutableStateOf("home") }
 
-    if (showLandingPage) {
-        HomeScreen(onStartClicked = { showLandingPage = false }, modifier = modifier)
-    } else {
-        Column(modifier = modifier) {
-            Header()
-            CountryList(countryList = DataSource().loadCountry())
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        containerColor = Color(0xFFF0F0F0)
+    ) { innerPadding ->
+        when (currentScreen) {
+            "home" -> HomeScreen(
+                onSeeAllCountries = {
+                    viewModel.fetchAllCountries()
+                    currentScreen = "list"
+                },
+                onSeeAfricanCountries = {
+                    viewModel.fetchAfricanCountries()
+                    currentScreen = "list"
+                },
+                modifier = Modifier.padding(innerPadding)
+            )
+            "list" -> ListScreen(
+                viewModel = viewModel,
+                onBack = { currentScreen = "home" },
+                modifier = Modifier.padding(innerPadding)
+            )
         }
     }
 }
 
 @Composable
-fun HomeScreen(onStartClicked: () -> Unit, modifier: Modifier = Modifier) {
+fun HomeScreen(
+    onSeeAllCountries: () -> Unit,
+    onSeeAfricanCountries: () -> Unit,
+    modifier: Modifier = Modifier
+) {
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -104,53 +121,100 @@ fun HomeScreen(onStartClicked: () -> Unit, modifier: Modifier = Modifier) {
             color = Color.Black
         )
         Spacer(modifier = Modifier.height(48.dp))
+        
         Button(
-            onClick = onStartClicked,
+            onClick = onSeeAllCountries,
             colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier
-                .width(200.dp)
+                .width(250.dp)
                 .height(56.dp)
         ) {
-            Text(
-                text = "voir les pays",
-                color = Color.White,
-                fontSize = 18.sp
-            )
+            Text(text = "voir les pays", color = Color.White, fontSize = 18.sp)
+        }
+        
+        Spacer(modifier = Modifier.height(16.dp))
+        
+        Button(
+            onClick = onSeeAfricanCountries,
+            colors = ButtonDefaults.buttonColors(containerColor = Color.Black),
+            shape = RoundedCornerShape(12.dp),
+            modifier = Modifier
+                .width(250.dp)
+                .height(56.dp)
+        ) {
+            Text(text = "voir les pays africains", color = Color.White, fontSize = 18.sp)
         }
     }
 }
 
 @Composable
-fun Header() {
-    Card(
-        modifier = Modifier
-            .padding(24.dp)
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(containerColor = Color.White),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center
+fun ListScreen(
+    viewModel: CountryViewModel,
+    onBack: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val countries by viewModel.countries.collectAsState()
+    val searchQuery by viewModel.searchQuery.collectAsState()
+    val isLoading by viewModel.isLoading.collectAsState()
+
+    Column(modifier = modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 24.dp),
+            contentAlignment = Alignment.Center
         ) {
-            Icon(
-                imageVector = Icons.Default.LocationOn,
-                contentDescription = null,
-                modifier = Modifier.size(48.dp),
-                tint = Color.Black
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = "M’bokas",
-                style = MaterialTheme.typography.headlineMedium,
-                fontWeight = FontWeight.Bold,
-                color = Color.Black
-            )
+            Surface(
+                shape = RoundedCornerShape(50),
+                color = Color.White,
+                shadowElevation = 2.dp
+            ) {
+                Text(
+                    text = "Liste pays",
+                    modifier = Modifier.padding(horizontal = 32.dp, vertical = 8.dp),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+        }
+
+        SearchBar(
+            query = searchQuery,
+            onQueryChanged = { viewModel.onSearchQueryChange(it) }
+        )
+
+        if (isLoading) {
+            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                CircularProgressIndicator(color = Color.Black)
+            }
+        } else {
+            CountryList(countryList = countries)
         }
     }
+}
+
+@Composable
+fun SearchBar(query: String, onQueryChanged: (String) -> Unit) {
+    TextField(
+        value = query,
+        onValueChange = onQueryChanged,
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(24.dp)
+            .height(56.dp),
+        placeholder = { Text("Rechercher un pays...") },
+        singleLine = true,
+        leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
+        shape = RoundedCornerShape(24.dp),
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = Color.White,
+            unfocusedContainerColor = Color.White,
+            disabledContainerColor = Color.White,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent
+        )
+    )
 }
 
 @Composable
@@ -197,9 +261,9 @@ fun CountryItem(country: Country, modifier: Modifier = Modifier) {
                         .background(Color.White),
                     contentAlignment = Alignment.Center
                 ) {
-                    Image(
-                        painter = painterResource(id = country.flagResourceId),
-                        contentDescription = null,
+                    AsyncImage(
+                        model = country.flagUrl,
+                        contentDescription = "Drapeau de ${country.name}",
                         modifier = Modifier.fillMaxSize(),
                         contentScale = ContentScale.Crop
                     )
@@ -209,13 +273,13 @@ fun CountryItem(country: Country, modifier: Modifier = Modifier) {
 
                 Column(modifier = Modifier.weight(1f)) {
                     Text(
-                        text = stringResource(id = country.nameResourceId),
+                        text = country.name,
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black
                     )
                     Text(
-                        text = "${stringResource(id = country.capitalResourceId)}/${country.code.lowercase()}",
+                        text = "${country.capital}/${country.code.lowercase()}",
                         style = MaterialTheme.typography.bodySmall,
                         color = Color.Gray
                     )
@@ -229,22 +293,14 @@ fun CountryItem(country: Country, modifier: Modifier = Modifier) {
                 )
             }
             
-            if (expanded) {
+            if (expanded && country.description.isNotEmpty()) {
                 Text(
-                    text = stringResource(id = country.descriptionResourceId),
+                    text = country.description,
                     style = MaterialTheme.typography.bodyMedium,
                     modifier = Modifier.padding(16.dp),
                     lineHeight = 20.sp
                 )
             }
         }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewCountryList() {
-    CountryTheme {
-        CountryApp()
     }
 }
