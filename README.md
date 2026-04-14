@@ -1,59 +1,56 @@
-﻿# 🌍 M'bokas - Explorer les Pays
+# 🌍 M'bokas - Explorer les Pays
 
-Une application Android moderne développée avec **Jetpack Compose** pour découvrir des pays à travers une interface fluide et interactive.
+**M'bokas** est une application Android moderne conçue pour explorer les pays du monde. Elle utilise l'API [REST Countries](https://restcountries.com/) pour fournir des informations en temps réel dans une interface fluide, animée et respectant les standards **Material Design 3**.
 
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org)
-[![Compose](https://img.shields.io/badge/Jetpack_Compose-2024.12.01-green.svg)](https://developer.android.com/jetpack/compose)
-[![Material3](https://img.shields.io/badge/Material_3-Latest-orange.svg)](https://m3.material.io)
+---
+
+## 🚀 Technologies & Stack
+
+![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg?style=flat-square&logo=kotlin)
+![Compose](https://img.shields.io/badge/Jetpack_Compose-2024.11.00-green.svg?style=flat-square&logo=jetpackcompose)
+![Material3](https://img.shields.io/badge/Material_3-Latest-orange.svg?style=flat-square&logo=materialdesign)
+![Retrofit](https://img.shields.io/badge/Retrofit-2.11.0-red.svg?style=flat-square)
 
 ---
 
 ## ✨ Fonctionnalités
 
-- **Page d'accueil (Karibu)** : Une interface de bienvenue épurée pour commencer l'exploration.
-- **Liste Interactive** : Parcourez une liste de pays avec leurs drapeaux, capitales et codes.
-- **Détails Expansibles** : Cliquez sur un pays pour afficher une description détaillée avec une animation fluide (`animateContentSize`).
-- **Design Moderne** : Interface inspirée du Material Design 3 avec des composants arrondis et des couleurs douces.
+- 🏠 **Accueil Personnalisé (Karibu)** : Une porte d'entrée élégante pour commencer la navigation.
+- 🔍 **Recherche Intelligente** : Filtrage instantané par nom, capitale ou code pays.
+- 📡 **Données Réelles** : Intégration de l'API REST Countries avec **Retrofit**.
+- 🖼️ **Chargement d'Images** : Affichage fluide des drapeaux via **Coil 3**.
+- ✨ **Animations Fluides** : Transition d'extension des cartes avec `animateContentSize`.
+- 📱 **UI Réactive** : Entièrement construite avec **Jetpack Compose** et une architecture MVVM.
 
 ---
 
-## 📸 Aperçu
+## 📸 Aperçu de l'Application
 
-| Accueil (Karibu) | Liste (M'bokas) | Détails (1) | Détails (2) | Détails (3) | Détails (4) |
-| :---: | :---: | :---: | :---: |-----------|-------------|
-| <img src="https://github.com/user-attachments/assets/09957806-ad4b-44ee-ad9e-9cd4b03494d7" width="200" /> | <img src="https://github.com/user-attachments/assets/98b26e2c-952b-4fca-ad38-f4400b1ebf36" width="200" /> | <img src="https://github.com/user-attachments/assets/84ad7f1f-5128-46bd-ab95-678dae541e17" width="200" /> | <img src="https://github.com/user-attachments/assets/86bc0fd1-f98a-4c9a-929d-fcd49487dbab" width="200" /> | <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ab965416-4655-42c1-944a-6b58a79771d8" />
-          |        <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ffd089fe-674c-4e66-8a72-dd7eba9cd293" />
-     |
+| Accueil | Liste des Pays | Recherche & Détails |
+| :---: | :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/09957806-ad4b-44ee-ad9e-9cd4b03494d7" width="220" /> | <img src="https://github.com/user-attachments/assets/98b26e2c-952b-4fca-ad38-f4400b1ebf36" width="220" /> | <img src="https://github.com/user-attachments/assets/84ad7f1f-5128-46bd-ab95-678dae541e17" width="220" /> |
 
----
-
-## 🛠️ Technologies Utilisées
-
-- **Langage** : [Kotlin](https://kotlinlang.org/)
-- **UI Framework** : [Jetpack Compose](https://developer.android.com/jetpack/compose)
-- **Design System** : [Material Design 3](https://m3.material.io/)
-- **Architecture** : Clean UI State management avec `remember` et `mutableStateOf`.
+| Expansion (1) | Expansion (2) | Expansion (3) |
+| :---: | :---: | :---: |
+| <img src="https://github.com/user-attachments/assets/86bc0fd1-f98a-4c9a-929d-fcd49487dbab" width="220" /> | <img src="https://github.com/user-attachments/assets/ab965416-4655-42c1-944a-6b58a79771d8" width="220" /> | <img src="https://github.com/user-attachments/assets/ffd089fe-674c-4e66-8a72-dd7eba9cd293" width="220" /> |
 
 ---
 
-## 🚀 Installation & Exécution
+## 🛠️ Installation & Exécution
 
-1. Clonez le dépôt :
+1. **Cloner le dépôt** :
    ```bash
    git clone https://github.com/gmasmas1-cloud/ATELIER-JET-PACK-COMPOSE-TP-COUNTRY-.git
    ```
-2. Ouvrez le projet dans **Android Studio (Ladybug ou plus récent)**.
-3. Synchronisez le projet avec les fichiers Gradle.
-4. Lancez l'application sur un émulateur ou un appareil physique (Min SDK 24).
+2. **Ouvrir dans Android Studio** : Utilisez la version Ladybug (2024.2.1) ou supérieure.
+3. **Synchroniser Gradle** : Assurez-vous d'avoir une connexion internet pour télécharger les dépendances.
+4. **Lancer** : Compatible avec Android 7.0 (API 24) et versions ultérieures.
 
 ---
 
-## 📝 À propos du TP
+## 📝 À propos
 
-Ce projet a été réalisé dans le cadre d'un atelier pratique sur Jetpack Compose, mettant l'accent sur :
-- La gestion des listes avec `LazyColumn`.
-- L'utilisation des ressources `strings.xml` pour l'internationalisation.
-- Les animations de composants et la gestion d'état.
+Ce projet a été réalisé dans le cadre d'un atelier pratique sur **Jetpack Compose**, mettant l'accent sur la gestion d'état, la consommation d'API REST et les animations Material 3.
 
----
-© 2024 - Développé avec par [Masangu/G'mas]
+**Développé par :** [Masangu/G'mas] 👨‍💻  
+**Année :** 2026
